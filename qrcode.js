@@ -19,6 +19,9 @@ var TraitementQRCode=function(dataQRCode){
 
 	if(dataQRCode.search('http')>-1){console.log('url')
 //go to http....
+var request = require('request');
+request({ uri : dataQRCode },  (err, response, body)=> {console.log(err)})
+
 }
 		
 }
