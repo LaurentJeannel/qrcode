@@ -17,20 +17,23 @@ TraitementQRCode(dataQRCode)
 
 var TraitementQRCode=function(dataQRCode){
 
-	if(dataQRCode.search('http')>-1){console.log('url')
-//go to http....
-var request = require('request');
-request({ uri : dataQRCode },  (err, response, body)=> {console.log(err)})
+	if(dataQRCode.search('http')>-1){console.log('url ')
+	
+		//go to http jarvis
+		if(dataQRCode.search('4300')>-1){
+		var request = require('request');
+			request({ uri : dataQRCode },  (err, response, body)=> {console.log(err)})
+		}
+		//go to http internet
+		else{
+			var exec = require('child_process').exec;
+				var proc = 'start chrome.exe '+dataQRCode
+				var child = exec(proc, function (error, stdout, stderr) {	
+				if (error !== null) console.log('exec error: ' + error);
+			});		
+		}
 
+	}
+return		
 }
-		
-}
-
-
-
-
-
-
-
-
 }
